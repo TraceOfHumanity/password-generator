@@ -28,7 +28,7 @@ export const MatrixBg = () => {
         const x = ind * 20;
 
         const hue = 185;
-        const color = `hsl(${hue}, 100%, 50%)`;
+        const color = `hsl(${hue}, 100%, 30%)`;
         ctx.fillStyle = color;
 
         ctx.fillText(text, x, y);

@@ -4,7 +4,7 @@ import { PasswordGenerator } from "components/PasswordGenerator";
 function App() {
   return (
     <div className="App">
-      {/* <MatrixBg /> */}
+      <MatrixBg />
       <PasswordGenerator />
     </div>
   );
