@@ -8,24 +8,6 @@ body {
   overflow: hidden;
 }
 
-input {
-  background: none;
-}
-input[type="range"] {
-  display: block;
-  width: 100%;
-  -webkit-appearance: none;
-  background: linear-gradient(90deg, red, orange, green);
-  height: 6px;
-  border-radius: 6px;
-  outline: none;
-  margin: 10px 0;
-}
-
-input[type="range"]:hover {
-  cursor: pointer;
-}
-
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
@@ -45,21 +27,24 @@ input[type="range"]::-moz-range-thumb {
   /* margin-top: -5px; */
 }
 
-/* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
 @keyframes colorWave {
   0% {
-    color: #23d5ab;
+    color: #22d3ee;
   }
+
   25% {
     color: #23a6d5;
   }
+
   50% {
-    color: #e73c7e;
+    color: #3e98a8;
   }
+
   75% {
-    color: #ee7752;
+    color: #26938a;
   }
+
   100% {
-    color: #23d5ab;
+    color: #22d3ee;
   }
 }
