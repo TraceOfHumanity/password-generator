@@ -6,7 +6,6 @@ const initialState = {
   includeUppercase: false,
   includeNumbers: false,
   includeSymbols: false,
-  avoidDuplicates: false,
 };
 
 const passwordSlice = createSlice({
@@ -28,9 +27,6 @@ const passwordSlice = createSlice({
     setIncludeSymbols(state, action) {
       state.includeSymbols = action.payload;
     },
-    setAvoidDuplicates(state, action) {
-      state.avoidDuplicates = action.payload;
-    },
   },
 });
 
@@ -40,7 +36,6 @@ export const {
   setIncludeUppercase,
   setIncludeNumbers,
   setIncludeSymbols,
-  setAvoidDuplicates,
 } = passwordSlice.actions;
 
 export default passwordSlice.reducer;
