@@ -23,7 +23,7 @@ export const PasswordGenerator = () => {
 
   return (
     <div
-      className="generatorWrapper fixed left-1/2 top-1/2 flex w-full max-w-xl -translate-x-1/2 -translate-y-1/2 transform flex-col gap-2 rounded-xl border-b-2 border-r-4 border-cyan-600 bg-black bg-opacity-50 p-3 text-cyan-400 shadow-[-10px_-10px_20px_0px_rgba(8,145,178,0.2)] backdrop-blur-sm "
+      className="generatorWrapper fixed left-1/2 top-1/2 flex w-full max-w-xl -translate-x-1/2 -translate-y-1/2 transform flex-col gap-2 rounded-xl border-b-2 border-r-4 border-cyan-600 bg-black bg-opacity-50 p-3 text-cyan-400 shadow-[-10px_-10px_20px_0px_rgba(8,145,178,0.2)] backdrop-blur-sm"
       ref={generatorWrapperRef}
     >
       <h2 className="text-center text-2xl font-bold">Password Generator</h2>
