@@ -1,10 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
+import {configureStore} from "@reduxjs/toolkit";
 
-import themeSlice from './slices/themeSlice';
+import passwordSlice from "./slices/passwordSlice";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    theme: themeSlice,
+    password: passwordSlice,
   },
 });
 
