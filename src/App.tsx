@@ -1,5 +1,7 @@
-import { MatrixBg } from "components/MatrixBg";
-import { PasswordGenerator } from "components/PasswordGenerator";
+import React from "react";
+
+import {MatrixBg} from "components/MatrixBg";
+import {PasswordGenerator} from "components/PasswordGenerator";
 
 function App() {
   return (

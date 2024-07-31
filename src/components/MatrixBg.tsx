@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 
 export const MatrixBg = () => {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [width, setWidth] = React.useState(window.innerWidth);
   const [height, setHeight] = React.useState(window.innerHeight);
   const cols = Math.floor(width / 20) + 1;
@@ -9,11 +9,14 @@ export const MatrixBg = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+
+    if (!canvas) return;
     const ctx = canvas.getContext("2d");
 
     canvas.width = width;
     canvas.height = height;
 
+    if (!ctx) return
     ctx.fillStyle = "#000";
     ctx.fillRect(0, 0, width, height);
 

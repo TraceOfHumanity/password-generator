@@ -1,10 +1,11 @@
-import React from 'react';
-import { FaCheck } from 'react-icons/fa6';
-import { IoCopyOutline } from 'react-icons/io5';
-import { useSelector } from 'react-redux';
+import React from "react";
+import {FaCheck} from "react-icons/fa6";
+import {IoCopyOutline} from "react-icons/io5";
+
+import {useAppSelector} from "hooks/useReduxToolkit";
 
 export const ReadyPassword = () => {
-  const { password } = useSelector((state) => state.password);
+  const {password} = useAppSelector((state) => state.password);
   const [isCopied, setIsCopied] = React.useState(false);
 
   React.useEffect(() => {
@@ -25,7 +26,7 @@ export const ReadyPassword = () => {
           navigator.clipboard.writeText(password);
           setIsCopied(true);
         }}
-        data-tooltip={isCopied ? 'Copied!' : 'Copy'}
+        data-tooltip={isCopied ? "Copied!" : "Copy"}
       >
         {isCopied ? <FaCheck /> : <IoCopyOutline />}
       </button>

@@ -1,13 +1,13 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import {useDispatch} from "react-redux";
 
 import {
-  setAvoidDuplicates,
   setIncludeNumbers,
   setIncludeSymbols,
   setIncludeUppercase,
   setPassword,
-} from '../redux/features/passwordSlice';
+} from "../redux/slices/passwordSlice";
+import {useAppSelector} from "./useReduxToolkit";
 
 export const usePasswordGenerator = () => {
   const dispatch = useDispatch();
@@ -16,21 +16,20 @@ export const usePasswordGenerator = () => {
     includeUppercase,
     includeNumbers,
     includeSymbols,
-    avoidDuplicates,
-  } = useSelector((state) => state.password);
+  } = useAppSelector((state) => state.password);
 
   const handleGeneratePassword = () => {
-    const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const numbers = '0123456789';
-    const symbols = '!@#$%^&*()_+=';
+    const lowercase = "abcdefghijklmnopqrstuvwxyz";
+    const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numbers = "0123456789";
+    const symbols = "!@#$%^&*()_+=";
 
     let characterList = lowercase;
     if (includeUppercase) characterList += uppercase;
     if (includeNumbers) characterList += numbers;
     if (includeSymbols) characterList += symbols;
 
-    let generatedPassword = '';
+    let generatedPassword = "";
     for (let i = 0; i < passwordLength; i++) {
       const randomIndex = Math.floor(Math.random() * characterList.length);
       generatedPassword += characterList[randomIndex];
@@ -40,20 +39,20 @@ export const usePasswordGenerator = () => {
 
   const passwordSettings = [
     {
-      label: 'Include Uppercase',
+      label: "Include Uppercase",
       value: includeUppercase,
       onChange: () => dispatch(setIncludeUppercase(!includeUppercase)),
     },
     {
-      label: 'Include Numbers',
+      label: "Include Numbers",
       value: includeNumbers,
       onChange: () => dispatch(setIncludeNumbers(!includeNumbers)),
     },
     {
-      label: 'Include Symbols',
+      label: "Include Symbols",
       value: includeSymbols,
       onChange: () => dispatch(setIncludeSymbols(!includeSymbols)),
     },
   ];
-  return { handleGeneratePassword, passwordSettings };
+  return {handleGeneratePassword, passwordSettings};
 };

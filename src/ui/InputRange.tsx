@@ -1,11 +1,10 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { setPasswordLength } from '../redux/features/passwordSlice';
+import { useAppDispatch, useAppSelector } from 'hooks/useReduxToolkit';
+import { setPasswordLength } from '../redux/slices/passwordSlice';
 
 export const InputRange = () => {
-  const { passwordLength } = useSelector((state) => state.password);
-  const dispatch = useDispatch();
+  const { passwordLength } = useAppSelector((state) => state.password);
+  const dispatch = useAppDispatch();
   return (
     <div className="w-full">
       <input
