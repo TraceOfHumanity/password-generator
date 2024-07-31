@@ -1,7 +1,13 @@
 import React from "react";
 
+import {MatrixBg} from "components/MatrixBg";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <MatrixBg />
+    </div>
+  );
 }
 
 export default App;
