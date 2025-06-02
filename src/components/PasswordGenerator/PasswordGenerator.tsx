@@ -1,31 +1,16 @@
-import { createContext, useState } from "react"
+import { PasswordGeneratorHeader } from "./PasswordGeneratorHeader";
+import { PasswordGeneratorLengthControl } from "./PasswordGeneratorLengthControl";
 
-type Password = {
-  password: string;
-  passwordLength: number;
-  includeUppercase: boolean;
-  includeNumbers: boolean;
-  includeSymbols: boolean;
-}
 
-type PasswordGeneratorContext = {
-  password: Password;
-  setPassword: (password: Password) => void;
-}
+export default function PasswordGenerator({ children }: { children: React.ReactNode }) {
 
-const PasswordGeneratorContext = createContext<PasswordGeneratorContext | undefined>(undefined)
-
-export default function PasswordGenerator() {
-  const [password, setPassword] = useState<Password>({
-    password: "",
-    passwordLength: 12,
-    includeUppercase: false,
-    includeNumbers: false,
-    includeSymbols: false,
-  })
   return (
-    <PasswordGeneratorContext.Provider value={{password, setPassword}}>
-      <h1>Password Generator</h1>
-    </PasswordGeneratorContext.Provider>
+    <div>
+      {children}
+    </div>
   )
 }
+
+PasswordGenerator.Header = PasswordGeneratorHeader
+
+PasswordGenerator.LengthControl = PasswordGeneratorLengthControl
