@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from "react";
 
-export const MatrixBg = () => {
+export const MatrixBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [width, setWidth] = React.useState(window.innerWidth);
   const [height, setHeight] = React.useState(window.innerHeight);
@@ -17,11 +17,19 @@ export const MatrixBg = () => {
     canvas.height = height;
 
     if (!ctx) return;
-    ctx.fillStyle = "#000";
+    
+    const gradient = ctx.createRadialGradient(
+      width / 2, height / 2, 0,
+      width / 2, height / 2, Math.max(width, height) / 2
+    );
+    gradient.addColorStop(0, "rgba(203, 239, 251, 0.1)");
+    gradient.addColorStop(1, "rgba(60, 94, 122, 0.1)");
+    
+    ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
     const matrix = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
 
       ctx.font = "15pt monospace";
@@ -31,7 +39,7 @@ export const MatrixBg = () => {
         const x = ind * 20;
 
         const hue = 185;
-        const color = `hsl(${hue}, 100%, 30%)`;
+        const color = `hsl(${hue}, 50%, 20%)`;
         ctx.fillStyle = color;
 
         ctx.fillText(text, x, y);
@@ -57,10 +65,6 @@ export const MatrixBg = () => {
   return (
     <canvas
       ref={canvasRef}
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-      }}></canvas>
+      style={{position: "absolute", top: 0, left: 0}}></canvas>
   );
 };

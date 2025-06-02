@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bodyBackgroundFrom: #CBEFFB;
+  --color-bodyBackgroundTo: #3C5E7A;
+  --color-text: #1f2937;
+
+}
+
 body {
-  background-color: black;
+  background: radial-gradient(circle, var(--color-bodyBackgroundFrom), var(--color-bodyBackgroundTo));
   color: #1f2937;
   overflow: hidden;
 }

@@ -17,16 +17,19 @@ export const PasswordGeneratorSettings = () => {
     {
       label: "Include Uppercase",
       value: includeUppercase,
+      description: "A-Z",
       onChange: () => dispatch(setIncludeUppercase(!includeUppercase)),
     },
     {
       label: "Include Numbers",
       value: includeNumbers,
+      description: "0-9",
       onChange: () => dispatch(setIncludeNumbers(!includeNumbers)),
     },
     {
       label: "Include Symbols",
       value: includeSymbols,
+      description: "!@#$%^&*()_+=",
       onChange: () => dispatch(setIncludeSymbols(!includeSymbols)),
     },
   ];
@@ -35,9 +38,16 @@ export const PasswordGeneratorSettings = () => {
     <div>
       {passwordSettings.map((setting, index) => (
         <div
-          className="flex items-center justify-between gap-2"
+          className="flex items-center justify-between"
           key={index}>
-          <span>{setting.label}</span>
+          <p className="flex items-center gap-2">
+            {setting.label}
+            <span className="text-xs text-green-200/70">
+              <span className="text-white/20">(</span>
+              {setting.description}
+              <span className="text-white/20">)</span>
+            </span>
+          </p>
           <Checkbox
             checked={setting.value}
             onChange={setting.onChange}

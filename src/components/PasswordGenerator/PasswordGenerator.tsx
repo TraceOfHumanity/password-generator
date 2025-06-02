@@ -1,6 +1,7 @@
 import { PasswordGeneratorGenerateButton } from "./PasswordGeneratorGenerateButton";
 import {PasswordGeneratorHeader} from "./PasswordGeneratorHeader";
 import {PasswordGeneratorLengthControl} from "./PasswordGeneratorLengthControl";
+import { PasswordGeneratorReadyPassword } from "./PasswordGeneratorReadyPassword";
 import { PasswordGeneratorSettings } from "./PasswordGeneratorSettings";
 
 export default function PasswordGenerator({
@@ -19,3 +20,4 @@ PasswordGenerator.Header = PasswordGeneratorHeader;
 PasswordGenerator.LengthControl = PasswordGeneratorLengthControl;
 PasswordGenerator.Settings = PasswordGeneratorSettings;
 PasswordGenerator.GenerateButton = PasswordGeneratorGenerateButton;
+PasswordGenerator.ReadyPassword = PasswordGeneratorReadyPassword;
