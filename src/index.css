@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bodyBackgroundFrom: #CBEFFB;
-  --color-bodyBackgroundTo: #3C5E7A;
-  --color-text: #1f2937;
-
+  --color-bodyBackgroundFrom: #cbeffb;
+  --color-bodyBackgroundTo: #3c5e7a;
+  --color-text: #163551;
 }
 
 body {
-  background: radial-gradient(circle, var(--color-bodyBackgroundFrom), var(--color-bodyBackgroundTo));
-  color: #1f2937;
+  background: radial-gradient(
+    circle,
+    var(--color-bodyBackgroundFrom),
+    var(--color-bodyBackgroundTo)
+  );
+  color: var(--text);
   overflow: hidden;
 }
 
@@ -51,3 +54,40 @@ input[type="range"]::-moz-range-thumb {
     color: #22d3ee;
   }
 }
+
+/* .passwordGeneratorWrapper{
+  -webkit-mask: url(/mask1.svg) no-repeat top left;
+  mask: url(/mask1.svg) no-repeat top left;
+  mask-composite: exclude;
+  mask-position: top left;
+  -webkit-mask-composite: exclude;
+  mask-repeat: no-repeat;
+} */
+.passwordGeneratorWrapper {
+  background-image: radial-gradient(circle, #ffffff6a, #ffffff6a);
+  display: block;
+  margin: 0 auto;
+  -webkit-mask-image: url(/mask1.svg), url(/mask2.svg),linear-gradient(#000000 0 0);
+  mask-image: url(/mask1.svg), url(/mask2.svg),linear-gradient(#000000 0 0);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: top left, top right;
+  -webkit-mask-composite: exclude, exclude;
+  mask-composite: exclude, exclude;
+  mask-position: top left, top right;
+  mask-repeat: no-repeat;
+}
+
+/* .passwordGeneratorWrapper { */
+  /* clip-path: path("M 0 0 L 100 0 L 100 100 L 0 100 Z"); */
+/* } */
+
+/* mask-composite: add;
+mask-composite: subtract;
+mask-composite: intersect;
+mask-composite: exclude;
+
+mask-composite: inherit;
+mask-composite: initial;
+mask-composite: revert;
+mask-composite: revert-layer;
+mask-composite: unset; */
