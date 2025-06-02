@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
   background-color: black;
   color: #1f2937;
@@ -15,7 +16,6 @@ input[type="range"]::-webkit-slider-thumb {
   background: #ffffff6a;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  /* margin-top: -5px; */
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -24,7 +24,6 @@ input[type="range"]::-moz-range-thumb {
   background: #ffffff6a;
   border-radius: 50%;
   border: 2px solid #ffffff;
-  /* margin-top: -5px; */
 }
 
 @keyframes colorWave {
