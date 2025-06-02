@@ -8,6 +8,9 @@ module.exports = {
         bodyBg: 'var(--bodyBg)',
         textColor: 'var(--textColor)',
       },
+      boxShadow: {
+        // card: '3px 3px 5px 0 var(--shadowColor)',
+      },
     },
   },
   plugins: [],
