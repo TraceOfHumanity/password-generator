@@ -61,7 +61,6 @@ export const MatrixBg = () => {
         position: "absolute",
         top: 0,
         left: 0,
-      }}
-    ></canvas>
+      }}></canvas>
   );
 };

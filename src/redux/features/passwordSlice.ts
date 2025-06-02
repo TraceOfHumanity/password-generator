@@ -30,7 +30,12 @@ const passwordSlice = createSlice({
   },
 });
 
-export const {setPassword, setPasswordLength, setIncludeUppercase, setIncludeNumbers, setIncludeSymbols} =
-  passwordSlice.actions;
+export const {
+  setPassword,
+  setPasswordLength,
+  setIncludeUppercase,
+  setIncludeNumbers,
+  setIncludeSymbols,
+} = passwordSlice.actions;
 
 export default passwordSlice.reducer;

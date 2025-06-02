@@ -1,1 +1,46 @@
 @import "tailwindcss";
+
+body {
+  background-color: black;
+  color: #1f2937;
+  overflow: hidden;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #ffffff6a;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #ffffff6a;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+@keyframes colorWave {
+  0% {
+    color: #22d3ee;
+  }
+
+  25% {
+    color: #23a6d5;
+  }
+
+  50% {
+    color: #3e98a8;
+  }
+
+  75% {
+    color: #26938a;
+  }
+
+  100% {
+    color: #22d3ee;
+  }
+}

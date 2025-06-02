@@ -8,6 +8,8 @@ function App() {
       <PasswordGenerator>
         <PasswordGenerator.Header />
         <PasswordGenerator.LengthControl />
+        <PasswordGenerator.Settings />
+        <PasswordGenerator.GenerateButton />
       </PasswordGenerator>
     </div>
   );
