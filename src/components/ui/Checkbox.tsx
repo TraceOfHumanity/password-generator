@@ -1,4 +1,3 @@
-
 import {FaCheck} from "react-icons/fa6";
 
 import {cn} from "@/utils/cn";
@@ -17,11 +16,7 @@ export const Checkbox = ({checked, onChange}: CheckboxProps) => {
         onChange={onChange}
         checked={checked}
       />
-      <span
-        className={cn(
-          "flex size-5 items-center justify-center rounded border border-cyan-600",
-        )}
-      >
+      <span className={cn("flex size-5 items-center justify-center rounded border border-cyan-600")}>
         {checked && <FaCheck className="h-4 w-4 text-white" />}
       </span>
     </label>

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, {useRef, useEffect} from "react";
 
 export const MatrixBg = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -16,7 +16,7 @@ export const MatrixBg = () => {
     canvas.width = width;
     canvas.height = height;
 
-    if (!ctx) return
+    if (!ctx) return;
     ctx.fillStyle = "#000";
     ctx.fillRect(0, 0, width, height);
 

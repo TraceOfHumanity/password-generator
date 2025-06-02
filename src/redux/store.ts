@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit";
 import passwordReducer from "./features/passwordSlice";
 
 export const store = configureStore({

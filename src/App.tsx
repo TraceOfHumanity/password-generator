@@ -1,5 +1,5 @@
-import { MatrixBg } from "./components/MatrixBg"
-import PasswordGenerator from "./components/PasswordGenerator/PasswordGenerator"
+import {MatrixBg} from "./components/MatrixBg";
+import PasswordGenerator from "./components/PasswordGenerator/PasswordGenerator";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <PasswordGenerator.LengthControl />
       </PasswordGenerator>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

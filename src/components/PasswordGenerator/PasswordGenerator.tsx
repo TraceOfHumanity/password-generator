@@ -1,16 +1,9 @@
-import { PasswordGeneratorHeader } from "./PasswordGeneratorHeader";
-import { PasswordGeneratorLengthControl } from "./PasswordGeneratorLengthControl";
+import {PasswordGeneratorHeader} from "./PasswordGeneratorHeader";
+import {PasswordGeneratorLengthControl} from "./PasswordGeneratorLengthControl";
 
-
-export default function PasswordGenerator({ children }: { children: React.ReactNode }) {
-
-  return (
-    <div>
-      {children}
-    </div>
-  )
+export default function PasswordGenerator({children}: {children: React.ReactNode}) {
+  return <div>{children}</div>;
 }
 
-PasswordGenerator.Header = PasswordGeneratorHeader
-
-PasswordGenerator.LengthControl = PasswordGeneratorLengthControl
+PasswordGenerator.Header = PasswordGeneratorHeader;
+PasswordGenerator.LengthControl = PasswordGeneratorLengthControl;
