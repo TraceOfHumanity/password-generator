@@ -67,14 +67,14 @@ input[type="range"]::-moz-range-thumb {
   background-image: radial-gradient(circle, #ffffff6a, #ffffff6a);
   display: block;
   margin: 0 auto;
-  -webkit-mask-image: url(/mask1.svg), url(/mask2.svg),linear-gradient(#000000 0 0);
-  mask-image: url(/mask1.svg), url(/mask2.svg),linear-gradient(#000000 0 0);
+  -webkit-mask-image: url(/mask.svg),linear-gradient(#000000 0 0);
+  mask-image: url(/mask.svg),linear-gradient(#000000 0 0);
   -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: top left, top right;
-  -webkit-mask-composite: exclude, exclude;
-  mask-composite: exclude, exclude;
-  mask-position: top left, top right;
   mask-repeat: no-repeat;
+  -webkit-mask-position: top center;
+  mask-position: top center;
+  -webkit-mask-composite: exclude;
+  mask-composite: exclude;
 }
 
 /* .passwordGeneratorWrapper { */
