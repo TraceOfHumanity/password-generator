@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bodyBackgroundFrom: #cbeffb;
-  --color-bodyBackgroundTo: #3c5e7a;
+  --color-bodyBackgroundFrom: #000000;
+  --color-bodyBackgroundTo: #D01C15;
   --color-text: #163551;
 }
 
 body {
-  background: radial-gradient(
-    circle,
-    var(--color-bodyBackgroundFrom),
+  background: linear-gradient(
+    180deg,
+    var(--color-bodyBackgroundFrom) 60%,
     var(--color-bodyBackgroundTo)
   );
   color: var(--text);

@@ -18,12 +18,10 @@ export const MatrixBackground = () => {
 
     if (!ctx) return;
     
-    const gradient = ctx.createRadialGradient(
-      width / 2, height / 2, 0,
-      width / 2, height / 2, Math.max(width, height) / 2
-    );
-    gradient.addColorStop(0, "rgba(203, 239, 251, 0.1)");
-    gradient.addColorStop(1, "rgba(60, 94, 122, 0.1)");
+    const gradient = ctx.createLinearGradient(0, 0, 0, height);
+    gradient.addColorStop(0, "rgba(0,0, 0, 0.1)");
+    gradient.addColorStop(0.6, "rgba(0,0, 0, 0.1)");
+    gradient.addColorStop(1, "rgba(208, 28, 21, 0.1)");
     
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
