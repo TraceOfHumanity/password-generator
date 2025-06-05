@@ -1,29 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@theme {
+  --color-bodyBackgroundFrom: #000000;
+  --color-bodyBackgroundTo: #111111;
+  --color-text: #ffffff;
+  --color-green: #CAE0BA;
+}
 
 body {
-  background-color: black;
-  color: #1f2937;
+  background: linear-gradient(
+    180deg,
+    var(--color-bodyBackgroundFrom),
+    var(--color-bodyBackgroundTo)
+  );
+  color: var(--color-text);
   overflow: hidden;
 }
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
-  height: 16px;
+  height: 30px;
   background: #ffffff6a;
-  border-radius: 50%;
-  border: 2px solid #ffffff;
+  border-radius: 100px;
+  border: 2px solid #fff;
 }
 
 input[type="range"]::-moz-range-thumb {
   width: 16px;
-  height: 16px;
+  height: 30px;
   background: #ffffff6a;
-  border-radius: 50%;
-  border: 2px solid #ffffff;
+  border-radius: 100px;
+  border: 2px solid #fff;
 }
 
 @keyframes colorWave {
@@ -46,4 +54,17 @@ input[type="range"]::-moz-range-thumb {
   100% {
     color: #22d3ee;
   }
+}
+
+.passwordGeneratorBackground {
+  display: block;
+  margin: 0 auto;
+  -webkit-mask-image: url(/mask.svg),linear-gradient(#000000 0 0);
+  mask-image: url(/mask.svg),linear-gradient(#000000 0 0);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: top center;
+  mask-position: top center;
+  -webkit-mask-composite: exclude;
+  mask-composite: exclude;
 }

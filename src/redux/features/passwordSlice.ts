@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-  password: '',
+  password: "",
   passwordLength: 12,
   includeUppercase: false,
   includeNumbers: false,
@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const passwordSlice = createSlice({
-  name: 'password',
+  name: "password",
   initialState,
   reducers: {
     setPassword(state, action) {
