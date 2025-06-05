@@ -35,12 +35,12 @@ export const PasswordGeneratorSettings = () => {
   ];
 
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       {passwordSettings.map((setting, index) => (
         <div
           className="flex items-center justify-between"
           key={index}>
-          <p className="flex items-center gap-2">
+          <p className="flex items-center gap-2 text-sm">
             {setting.label}
             <span className="text-xs text-green-200/70">
               <span className="text-white/20">(</span>

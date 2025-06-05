@@ -2,8 +2,8 @@
 
 @theme {
   --color-bodyBackgroundFrom: #000000;
-  --color-bodyBackgroundTo: #333333;
-  --color-text: #163551;
+  --color-bodyBackgroundTo: #111111;
+  --color-text: #ffffff;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
     var(--color-bodyBackgroundTo)
   );
   /* background: var(--color-bodyBackgroundFrom); */
-  color: var(--text);
+  color: var(--color-text);
   overflow: hidden;
 }
 
@@ -23,7 +23,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 30px;
   background: #ffffff6a;
   border-radius: 100px;
-  border: 2px solid #00000088;
+  border: 2px solid #fff;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -31,7 +31,7 @@ input[type="range"]::-moz-range-thumb {
   height: 30px;
   background: #ffffff6a;
   border-radius: 100px;
-  border: 2px solid #00000088;
+  border: 2px solid #fff;
 }
 
 @keyframes colorWave {
@@ -57,7 +57,6 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .passwordGeneratorBackground {
-  background-image: radial-gradient(circle, #ffffff6a, #ffffff6a);
   display: block;
   margin: 0 auto;
   -webkit-mask-image: url(/mask.svg),linear-gradient(#000000 0 0);
