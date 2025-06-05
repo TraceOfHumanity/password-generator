@@ -24,3 +24,4 @@ A secure password generator that allows you to create strong passwords with vari
 - Maximum configuration: ~2.27 × 10^60 combinations
 
 The maximum configuration provides an extremely high level of security, making it practically impossible to crack through brute force methods, even with supercomputers.
+
