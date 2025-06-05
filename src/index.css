@@ -64,7 +64,7 @@ input[type="range"]::-moz-range-thumb {
   -webkit-mask-composite: exclude;
   mask-repeat: no-repeat;
 } */
-.passwordGeneratorWrapper {
+.passwordGeneratorBackground {
   background-image: radial-gradient(circle, #ffffff6a, #ffffff6a);
   display: block;
   margin: 0 auto;
