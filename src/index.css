@@ -13,7 +13,6 @@ body {
     var(--color-bodyBackgroundFrom),
     var(--color-bodyBackgroundTo)
   );
-  /* background: var(--color-bodyBackgroundFrom); */
   color: var(--color-text);
   overflow: hidden;
 }
