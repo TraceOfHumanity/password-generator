@@ -19,9 +19,8 @@ export const MatrixBackground = () => {
     if (!ctx) return;
     
     const gradient = ctx.createLinearGradient(0, 0, 0, height);
-    gradient.addColorStop(0, "rgba(0,0, 0, 0.1)");
-    gradient.addColorStop(0.6, "rgba(0,0, 0, 0.1)");
-    gradient.addColorStop(1, "rgba(208, 28, 21, 0.1)");
+    gradient.addColorStop(0, "rgba(249, 244, 250, 0.1)");
+    gradient.addColorStop(1, "rgba(222, 242, 243, 0.1)");
     
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
@@ -36,8 +35,8 @@ export const MatrixBackground = () => {
         const text = String.fromCharCode(Math.random() * 256);
         const x = ind * 20;
 
-        const hue = 185;
-        const color = `hsl(${hue}, 50%, 20%)`;
+        const hue = 183;
+        const color = `hsl(${hue}, 50%, 13%)`;
         ctx.fillStyle = color;
 
         ctx.fillText(text, x, y);
