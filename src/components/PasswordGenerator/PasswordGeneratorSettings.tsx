@@ -42,7 +42,7 @@ export const PasswordGeneratorSettings = () => {
           key={index}>
           <p className="flex items-center gap-2 text-sm">
             {setting.label}
-            <span className="text-xs text-green-200/70">
+            <span className="text-xs text-green">
               <span className="text-white/20">(</span>
               {setting.description}
               <span className="text-white/20">)</span>

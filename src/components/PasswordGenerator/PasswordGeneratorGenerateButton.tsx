@@ -26,7 +26,7 @@ export const PasswordGeneratorGenerateButton = () => {
   };
   return (
     <button
-      className="rounded-lg border border-cyan-800 p-2 duration-200 hover:bg-cyan-800 hover:bg-opacity-20"
+      className="rounded-lg border border-green p-2 duration-200 hover:bg-green hover:bg-opacity-20 hover:text-black"
       onClick={handleGeneratePassword}>
       Generate
     </button>
