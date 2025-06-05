@@ -17,11 +17,11 @@ export const MatrixBackground = () => {
     canvas.height = height;
 
     if (!ctx) return;
-    
+
     const gradient = ctx.createLinearGradient(0, 0, 0, height);
     gradient.addColorStop(0, "rgba(0, 0, 0, 0.2)");
     gradient.addColorStop(1, "rgba(17, 17, 17, 0.7)");
-    
+
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 

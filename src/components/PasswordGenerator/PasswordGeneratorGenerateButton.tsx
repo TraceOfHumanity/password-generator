@@ -1,5 +1,5 @@
 import {useAppDispatch, useAppSelector} from "@/hooks";
-import { setPassword } from "@/redux/features/passwordSlice";
+import {setPassword} from "@/redux/features/passwordSlice";
 
 export const PasswordGeneratorGenerateButton = () => {
   const dispatch = useAppDispatch();
