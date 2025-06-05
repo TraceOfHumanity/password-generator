@@ -33,38 +33,3 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 100px;
   border: 2px solid #fff;
 }
-
-@keyframes colorWave {
-  0% {
-    color: #22d3ee;
-  }
-
-  25% {
-    color: #23a6d5;
-  }
-
-  50% {
-    color: #3e98a8;
-  }
-
-  75% {
-    color: #26938a;
-  }
-
-  100% {
-    color: #22d3ee;
-  }
-}
-
-.passwordGeneratorBackground {
-  display: block;
-  margin: 0 auto;
-  -webkit-mask-image: url(/mask.svg),linear-gradient(#000000 0 0);
-  mask-image: url(/mask.svg),linear-gradient(#000000 0 0);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: top center;
-  mask-position: top center;
-  -webkit-mask-composite: exclude;
-  mask-composite: exclude;
-}
