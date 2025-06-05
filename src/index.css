@@ -20,18 +20,18 @@ body {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
-  height: 16px;
+  height: 40px;
   background: #ffffff6a;
-  border-radius: 50%;
-  border: 2px solid #ffffff;
+  border-radius: 100px;
+  border: 2px solid #00000088;
 }
 
 input[type="range"]::-moz-range-thumb {
   width: 16px;
-  height: 16px;
+  height: 40px;
   background: #ffffff6a;
-  border-radius: 50%;
-  border: 2px solid #ffffff;
+  border-radius: 100px;
+  border: 2px solid #00000088;
 }
 
 @keyframes colorWave {
