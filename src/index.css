@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bodyBackgroundFrom: #F9F4FA;
-  --color-bodyBackgroundTo: #DEF2F3;
+  --color-bodyBackgroundFrom: #000000;
+  --color-bodyBackgroundTo: #333333;
   --color-text: #163551;
 }
 
@@ -20,7 +20,7 @@ body {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
-  height: 40px;
+  height: 30px;
   background: #ffffff6a;
   border-radius: 100px;
   border: 2px solid #00000088;
@@ -28,7 +28,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 input[type="range"]::-moz-range-thumb {
   width: 16px;
-  height: 40px;
+  height: 30px;
   background: #ffffff6a;
   border-radius: 100px;
   border: 2px solid #00000088;
@@ -56,14 +56,6 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-/* .passwordGeneratorWrapper{
-  -webkit-mask: url(/mask1.svg) no-repeat top left;
-  mask: url(/mask1.svg) no-repeat top left;
-  mask-composite: exclude;
-  mask-position: top left;
-  -webkit-mask-composite: exclude;
-  mask-repeat: no-repeat;
-} */
 .passwordGeneratorBackground {
   background-image: radial-gradient(circle, #ffffff6a, #ffffff6a);
   display: block;
@@ -77,18 +69,3 @@ input[type="range"]::-moz-range-thumb {
   -webkit-mask-composite: exclude;
   mask-composite: exclude;
 }
-
-/* .passwordGeneratorWrapper { */
-  /* clip-path: path("M 0 0 L 100 0 L 100 100 L 0 100 Z"); */
-/* } */
-
-/* mask-composite: add;
-mask-composite: subtract;
-mask-composite: intersect;
-mask-composite: exclude;
-
-mask-composite: inherit;
-mask-composite: initial;
-mask-composite: revert;
-mask-composite: revert-layer;
-mask-composite: unset; */
