@@ -9,7 +9,7 @@
 
 body {
   background: linear-gradient(
-    180deg,
+    to bottom,
     var(--color-bodyBackgroundFrom),
     var(--color-bodyBackgroundTo)
   );

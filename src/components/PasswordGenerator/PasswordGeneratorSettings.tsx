@@ -1,36 +1,34 @@
-import {Checkbox} from "@/components/ui/Checkbox";
+import {useAppDispatch, useAppSelector} from "@/hooks";
 import {
-  setIncludeNumbers,
-  setIncludeSymbols,
-  setIncludeUppercase,
+  setIsIncludeNumbers,
+  setIsIncludeSymbols,
+  setIsIncludeUppercase,
 } from "@/redux/features/passwordSlice";
-import {useAppSelector} from "@/hooks";
-import {useDispatch} from "react-redux";
+import {Checkbox} from "../ui/Checkbox";
 
 export const PasswordGeneratorSettings = () => {
-  const dispatch = useDispatch();
-  const {includeUppercase, includeNumbers, includeSymbols} = useAppSelector(
-    (state) => state.password,
-  );
+  const dispatch = useAppDispatch();
+  const {isIncludeUppercase, isIncludeNumbers, isIncludeSymbols} =
+    useAppSelector((state) => state.password);
 
   const passwordSettings = [
     {
       label: "Include Uppercase",
-      value: includeUppercase,
+      value: isIncludeUppercase,
       description: "A-Z",
-      onChange: () => dispatch(setIncludeUppercase(!includeUppercase)),
+      onChange: () => dispatch(setIsIncludeUppercase(!isIncludeUppercase)),
     },
     {
       label: "Include Numbers",
-      value: includeNumbers,
+      value: isIncludeNumbers,
       description: "0-9",
-      onChange: () => dispatch(setIncludeNumbers(!includeNumbers)),
+      onChange: () => dispatch(setIsIncludeNumbers(!isIncludeNumbers)),
     },
     {
       label: "Include Symbols",
-      value: includeSymbols,
+      value: isIncludeSymbols,
       description: "!@#$%^&*()_+=",
-      onChange: () => dispatch(setIncludeSymbols(!includeSymbols)),
+      onChange: () => dispatch(setIsIncludeSymbols(!isIncludeSymbols)),
     },
   ];
 

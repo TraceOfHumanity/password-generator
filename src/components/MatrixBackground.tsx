@@ -1,50 +1,50 @@
-import React, {useRef, useEffect} from "react";
+import {useEffect, useRef, useState} from "react";
 
 export const MatrixBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [width, setWidth] = React.useState(window.innerWidth);
-  const [height, setHeight] = React.useState(window.innerHeight);
-  const cols = Math.floor(width / 20) + 1;
-  const yPosition = Array(cols).fill(0);
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const columns = Math.floor(width / 20) + 1;
+  const yPositions = Array(columns).fill(0);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
+    if (!canvasRef.current) return;
 
-    if (!canvas) return;
+    const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+
+    if (!ctx) return;
 
     canvas.width = width;
     canvas.height = height;
 
-    if (!ctx) return;
-
-    const gradient = ctx.createLinearGradient(0, 0, 0, height);
+    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
     gradient.addColorStop(0, "rgba(0, 0, 0, 0.2)");
     gradient.addColorStop(1, "rgba(17, 17, 17, 0.7)");
 
     ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const matrix = () => {
       ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, width, height);
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.font = "15pt monospace";
+      ctx.font = "16pt monospace";
 
-      yPosition.forEach((y, ind) => {
+      yPositions.forEach((y, index) => {
         const text = String.fromCharCode(Math.random() * 256);
-        const x = ind * 20;
+        const x = index * 20;
 
-        const hue = 183;
+        const hue = 183 + Math.random() * 25;
         const color = `hsl(${hue}, 0%, 40%)`;
-        ctx.fillStyle = color;
 
+        ctx.fillStyle = color;
         ctx.fillText(text, x, y);
 
-        if (y > 100 + Math.random() * 10000) {
-          yPosition[ind] = 0;
+        if (y > 100 + Math.random() * 1e4) {
+          yPositions[index] = 0;
         } else {
-          yPosition[ind] = y + 20;
+          yPositions[index] = y + 20;
         }
       });
     };
@@ -57,11 +57,12 @@ export const MatrixBackground = () => {
     const interval = setInterval(matrix, 60);
 
     return () => clearInterval(interval);
-  }, [height, width, yPosition]);
+  }, [width, height, yPositions]);
 
   return (
     <canvas
       ref={canvasRef}
-      style={{position: "absolute", top: 0, left: 0}}></canvas>
+      className="absolute inset-0"
+    />
   );
 };

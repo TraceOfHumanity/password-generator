@@ -1,7 +1,3 @@
 export const PasswordGeneratorHeader = () => {
-  return (
-    <div>
-      <h1 className="text-center text-2xl font-bold">Password Generator</h1>
-    </div>
-  );
+  return <h1 className="text-2xl font-bold text-center">Password Generator</h1>;
 };

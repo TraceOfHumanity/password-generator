@@ -1,26 +1,21 @@
-import {FaCheck} from "react-icons/fa6";
-
-import {cn} from "@/utils/cn";
+import {FaCheck} from "react-icons/fa";
 
 type CheckboxProps = {
   checked: boolean;
-  onChange: () => void;
+  onChange: (checked: boolean) => void;
 };
 
 export const Checkbox = ({checked, onChange}: CheckboxProps) => {
   return (
     <label className="w-fit cursor-pointer">
       <input
-        className="absolute hidden h-0 w-0"
+        className="hidden"
         type="checkbox"
-        onChange={onChange}
         checked={checked}
+        onChange={() => onChange(!checked)}
       />
-      <span
-        className={cn(
-          "flex size-5 items-center justify-center rounded border border-white",
-        )}>
-        {checked && <FaCheck className="h-4 w-4 text-white" />}
+      <span className="flex size-5 items-center justify-center rounded border border-white">
+        {checked && <FaCheck className="text-white size-4" />}
       </span>
     </label>
   );

@@ -3,29 +3,29 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
   password: "",
   passwordLength: 12,
-  includeUppercase: false,
-  includeNumbers: false,
-  includeSymbols: false,
+  isIncludeUppercase: false,
+  isIncludeNumbers: false,
+  isIncludeSymbols: false,
 };
 
 const passwordSlice = createSlice({
   name: "password",
   initialState,
   reducers: {
-    setPassword(state, action) {
+    setPassword: (state, action) => {
       state.password = action.payload;
     },
-    setPasswordLength(state, action) {
+    setPasswordLength: (state, action) => {
       state.passwordLength = action.payload;
     },
-    setIncludeUppercase(state, action) {
-      state.includeUppercase = action.payload;
+    setIsIncludeUppercase: (state, action) => {
+      state.isIncludeUppercase = action.payload;
     },
-    setIncludeNumbers(state, action) {
-      state.includeNumbers = action.payload;
+    setIsIncludeNumbers: (state, action) => {
+      state.isIncludeNumbers = action.payload;
     },
-    setIncludeSymbols(state, action) {
-      state.includeSymbols = action.payload;
+    setIsIncludeSymbols: (state, action) => {
+      state.isIncludeSymbols = action.payload;
     },
   },
 });
@@ -33,9 +33,9 @@ const passwordSlice = createSlice({
 export const {
   setPassword,
   setPasswordLength,
-  setIncludeUppercase,
-  setIncludeNumbers,
-  setIncludeSymbols,
+  setIsIncludeUppercase,
+  setIsIncludeNumbers,
+  setIsIncludeSymbols,
 } = passwordSlice.actions;
 
 export default passwordSlice.reducer;
