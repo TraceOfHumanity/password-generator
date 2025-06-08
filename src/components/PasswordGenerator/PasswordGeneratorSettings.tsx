@@ -6,7 +6,7 @@ import {
 } from '@/redux/features/passwordSlice';
 import {Checkbox} from '../ui/Checkbox';
 
-export const PasswordGeneratorSettings = () => {
+export const Settings = () => {
   const dispatch = useAppDispatch();
   const {isIncludeUppercase, isIncludeNumbers, isIncludeSymbols} =
     useAppSelector((state) => state.password);

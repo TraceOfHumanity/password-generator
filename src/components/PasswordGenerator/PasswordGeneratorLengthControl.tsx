@@ -1,7 +1,7 @@
 import {useAppDispatch, useAppSelector} from '@/hooks';
 import {setPasswordLength} from '@/redux/features/passwordSlice';
 
-export const PasswordGeneratorLengthControl = () => {
+export const LengthControl = () => {
   const dispatch = useAppDispatch();
   const {passwordLength} = useAppSelector((state) => state.password);
 

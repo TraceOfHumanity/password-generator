@@ -1,8 +1,8 @@
-import {PasswordGeneratorGenerateButton} from './PasswordGeneratorGenerateButton';
-import {PasswordGeneratorHeader} from './PasswordGeneratorHeader';
-import {PasswordGeneratorLengthControl} from './PasswordGeneratorLengthControl';
-import {PasswordGeneratorReadyPassword} from './PasswordGeneratorReadyPassword';
-import {PasswordGeneratorSettings} from './PasswordGeneratorSettings';
+import {GeneratePasswordButton} from './PasswordGeneratorGenerateButton';
+import {Header} from './PasswordGeneratorHeader';
+import {LengthControl} from './PasswordGeneratorLengthControl';
+import {ReadyPassword} from './PasswordGeneratorReadyPassword';
+import {Settings} from './PasswordGeneratorSettings';
 
 export const PasswordGenerator = ({children}: {children: React.ReactNode}) => {
   return (
@@ -12,8 +12,8 @@ export const PasswordGenerator = ({children}: {children: React.ReactNode}) => {
   );
 };
 
-PasswordGenerator.Header = PasswordGeneratorHeader;
-PasswordGenerator.LengthControl = PasswordGeneratorLengthControl;
-PasswordGenerator.Settings = PasswordGeneratorSettings;
-PasswordGenerator.GenerateButton = PasswordGeneratorGenerateButton;
-PasswordGenerator.ReadyPassword = PasswordGeneratorReadyPassword;
+PasswordGenerator.Header = Header;
+PasswordGenerator.LengthControl = LengthControl;
+PasswordGenerator.Settings = Settings;
+PasswordGenerator.GenerateButton = GeneratePasswordButton;
+PasswordGenerator.ReadyPassword = ReadyPassword;

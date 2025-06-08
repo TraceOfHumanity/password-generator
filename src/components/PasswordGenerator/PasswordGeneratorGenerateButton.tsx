@@ -1,7 +1,7 @@
 import {useAppDispatch, useAppSelector} from '@/hooks';
 import {setPassword} from '@/redux/features/passwordSlice';
 
-export const PasswordGeneratorGenerateButton = () => {
+export const GeneratePasswordButton = () => {
   const dispatch = useAppDispatch();
   const {
     isIncludeUppercase,
