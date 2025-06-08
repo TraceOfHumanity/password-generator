@@ -1,9 +1,9 @@
-import {MatrixBackground} from "./components/MatrixBackground";
-import {PasswordGenerator} from "./components/PasswordGenerator";
+import {MatrixBackground} from './components/MatrixBackground';
+import {PasswordGenerator} from './components/PasswordGenerator';
 
 function App() {
   return (
-    <div className="h-screen w-screen overflow-hidden">
+    <div className='h-screen w-screen overflow-hidden'>
       <MatrixBackground />
       <PasswordGenerator>
         <PasswordGenerator.Header />

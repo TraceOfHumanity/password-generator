@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from 'react';
 
 export const MatrixBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -11,7 +11,7 @@ export const MatrixBackground = () => {
     if (!canvasRef.current) return;
 
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
 
     if (!ctx) return;
 
@@ -19,8 +19,8 @@ export const MatrixBackground = () => {
     canvas.height = height;
 
     const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, "rgba(0, 0, 0, 0.2)");
-    gradient.addColorStop(1, "rgba(17, 17, 17, 0.7)");
+    gradient.addColorStop(0, 'rgba(0, 0, 0, 0.2)');
+    gradient.addColorStop(1, 'rgba(17, 17, 17, 0.7)');
 
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -29,7 +29,7 @@ export const MatrixBackground = () => {
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.font = "16pt monospace";
+      ctx.font = '16pt monospace';
 
       yPositions.forEach((y, index) => {
         const text = String.fromCharCode(Math.random() * 256);
@@ -62,7 +62,7 @@ export const MatrixBackground = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0"
+      className='absolute inset-0'
     />
   );
 };

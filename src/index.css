@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-bodyBackgroundFrom: #000000;
@@ -17,7 +17,7 @@ body {
   overflow: hidden;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
   height: 30px;
@@ -26,7 +26,7 @@ input[type="range"]::-webkit-slider-thumb {
   border: 2px solid #fff;
 }
 
-input[type="range"]::-moz-range-thumb {
+input[type='range']::-moz-range-thumb {
   width: 16px;
   height: 30px;
   background: #ffffff6a;
