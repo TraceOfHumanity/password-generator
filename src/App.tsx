@@ -1,5 +1,5 @@
 import {MatrixBackground} from './components/MatrixBackground';
-import {PasswordGenerator} from './components/PasswordGenerator';
+import {PasswordGenerator} from './components/PasswordGenerator/PasswordGenerator';
 
 function App() {
   return (
