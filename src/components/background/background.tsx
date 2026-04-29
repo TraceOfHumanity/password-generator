@@ -97,6 +97,8 @@ const WavesPoints = () => {
           uTwinkleStrength: {value: 0.65},
           uTwinkleSpeed: {value: 2.2},
           uSize: {value: 3.0},
+          uFogColor: {value: new THREE.Color('#020408')},
+          uFogDensity: {value: 0.05},
         }}
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
@@ -112,10 +114,7 @@ const Background = () => {
         attach='background'
         args={['#020408']}
       />
-      <fogExp2
-        attach='fog'
-        args={['#020408', 1]}
-      />
+ 
       <ambientLight intensity={0.6} />
       <WavesPoints />
     </Canvas>
