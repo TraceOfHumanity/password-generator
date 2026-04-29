@@ -4,9 +4,9 @@ import {type PasswordGeneratorContextValue} from '@/types/password-generator.typ
 export const usePasswordGenerator = () => {
   const [password, setPassword] = useState('');
   const [passwordLength, setPasswordLength] = useState(12);
-  const [isIncludeLowercase, setIsIncludeLowercase] = useState(false);
+  const [isIncludeLowercase, setIsIncludeLowercase] = useState(true);
   const [isIncludeUppercase, setIsIncludeUppercase] = useState(false);
-  const [isIncludeNumbers, setIsIncludeNumbers] = useState(false);
+  const [isIncludeNumbers, setIsIncludeNumbers] = useState(true);
   const [isIncludeSymbols, setIsIncludeSymbols] = useState(false);
   const [isIncludeCustomSymbols, setIsIncludeCustomSymbols] = useState(false);
   const [customSymbols, setCustomSymbols] = useState('');
@@ -30,6 +30,13 @@ export const usePasswordGenerator = () => {
   const toggleIncludeCustomSymbols = useCallback(() => {
     setIsIncludeCustomSymbols((prev) => !prev);
   }, []);
+
+  const isGenerationEnabled =
+    isIncludeLowercase ||
+    isIncludeUppercase ||
+    isIncludeNumbers ||
+    isIncludeSymbols ||
+    isIncludeCustomSymbols;
 
   const generatePassword = useCallback(() => {
     const lowercase = 'abcdefghijklmnopqrstuvwxyz';
@@ -85,6 +92,7 @@ export const usePasswordGenerator = () => {
       toggleIncludeNumbers,
       toggleIncludeSymbols,
       toggleIncludeCustomSymbols,
+      isGenerationEnabled,
       generatePassword,
     }),
     [
@@ -102,6 +110,7 @@ export const usePasswordGenerator = () => {
       toggleIncludeNumbers,
       toggleIncludeSymbols,
       toggleIncludeCustomSymbols,
+      isGenerationEnabled,
       generatePassword,
     ],
   );

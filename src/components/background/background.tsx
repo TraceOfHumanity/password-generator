@@ -54,7 +54,7 @@ const WavesPoints = () => {
   return (
     <points
       ref={pointsRef}
-      rotation-x={-Math.PI / 2}>
+      rotation-x={-Math.PI / 2.2}>
       <bufferGeometry>
         <bufferAttribute
           attach='attributes-position'

@@ -14,5 +14,6 @@ export type PasswordGeneratorContextValue = {
   toggleIncludeNumbers: () => void;
   toggleIncludeSymbols: () => void;
   toggleIncludeCustomSymbols: () => void;
+  isGenerationEnabled: boolean;
   generatePassword: () => void;
 };
