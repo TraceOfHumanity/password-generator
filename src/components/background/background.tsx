@@ -74,12 +74,14 @@ const WavesPoints = () => {
 
 const Background = () => {
   return (
-    <Canvas
-      className='h-screen w-screen'
-      camera={{position: [0, 6, 10], fov: 50}}>
+    <Canvas camera={{position: [0, 6, 10], fov: 50, near: 0.1, far: 120}}>
       <color
         attach='background'
         args={['#020408']}
+      />
+      <fogExp2
+        attach='fog'
+        args={['#020408', 0.06]}
       />
       <ambientLight intensity={0.6} />
       <WavesPoints />
