@@ -1,11 +1,11 @@
-import {MatrixBackground} from './components/matrix-background';
+import Background from './components/background/background';
 import Wrapper from './components/page-wrapper';
 import {PasswordGenerator} from './components/password-generator/password-generator';
 
 function App() {
   return (
     <Wrapper>
-      <MatrixBackground />
+      <Background />
       <PasswordGenerator>
         <PasswordGenerator.Header />
         <PasswordGenerator.LengthControl />
