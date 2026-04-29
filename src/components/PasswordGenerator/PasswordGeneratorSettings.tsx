@@ -1,34 +1,34 @@
-import {useAppDispatch, useAppSelector} from '@/hooks';
-import {
-  setIsIncludeNumbers,
-  setIsIncludeSymbols,
-  setIsIncludeUppercase,
-} from '@/redux/features/passwordSlice';
+import {usePasswordGenerator} from '@/hooks';
 import {Checkbox} from '../ui/Checkbox';
 
 export const Settings = () => {
-  const dispatch = useAppDispatch();
-  const {isIncludeUppercase, isIncludeNumbers, isIncludeSymbols} =
-    useAppSelector((state) => state.password);
+  const {
+    isIncludeUppercase,
+    isIncludeNumbers,
+    isIncludeSymbols,
+    toggleIncludeUppercase,
+    toggleIncludeNumbers,
+    toggleIncludeSymbols,
+  } = usePasswordGenerator();
 
   const passwordSettings = [
     {
       label: 'Include Uppercase',
       value: isIncludeUppercase,
       description: 'A-Z',
-      onChange: () => dispatch(setIsIncludeUppercase(!isIncludeUppercase)),
+      onChange: toggleIncludeUppercase,
     },
     {
       label: 'Include Numbers',
       value: isIncludeNumbers,
       description: '0-9',
-      onChange: () => dispatch(setIsIncludeNumbers(!isIncludeNumbers)),
+      onChange: toggleIncludeNumbers,
     },
     {
       label: 'Include Symbols',
       value: isIncludeSymbols,
       description: '!@#$%^&*()_+=',
-      onChange: () => dispatch(setIsIncludeSymbols(!isIncludeSymbols)),
+      onChange: toggleIncludeSymbols,
     },
   ];
 

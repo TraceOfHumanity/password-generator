@@ -1,9 +1,7 @@
-import {useAppDispatch, useAppSelector} from '@/hooks';
-import {setPasswordLength} from '@/redux/features/passwordSlice';
+import {usePasswordGenerator} from '@/hooks';
 
 export const LengthControl = () => {
-  const dispatch = useAppDispatch();
-  const {passwordLength} = useAppSelector((state) => state.password);
+  const {passwordLength, setPasswordLength} = usePasswordGenerator();
 
   return (
     <div className='flex w-full flex-col gap-2'>
@@ -17,7 +15,7 @@ export const LengthControl = () => {
         min={8}
         max={32}
         value={passwordLength}
-        onChange={(e) => dispatch(setPasswordLength(Number(e.target.value)))}
+        onChange={(e) => setPasswordLength(Number(e.target.value))}
       />
     </div>
   );
