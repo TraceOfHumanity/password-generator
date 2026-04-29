@@ -1,9 +1,12 @@
 import {Canvas, useFrame} from '@react-three/fiber';
 import {useMemo, useRef} from 'react';
 import * as THREE from 'three';
+import fragmentShader from './shaders/waves-points.frag.glsl';
+import vertexShader from './shaders/waves-points.vert.glsl';
 
 const WavesPoints = () => {
   const pointsRef = useRef<THREE.Points>(null);
+  const materialRef = useRef<THREE.ShaderMaterial>(null);
 
   const {base, widthSegments, heightSegments} = useMemo(() => {
     const width = 50;
@@ -24,9 +27,18 @@ const WavesPoints = () => {
   }, []);
 
   const animated = useMemo(() => new Float32Array(base), [base]);
+  const phaseArray = useMemo(() => {
+    const count = (widthSegments + 1) * (heightSegments + 1);
+    const phases = new Float32Array(count);
+    for (let i = 0; i < count; i++) {
+      phases[i] = Math.random() * Math.PI * 2;
+    }
+    return phases;
+  }, [heightSegments, widthSegments]);
 
   useFrame(({clock}) => {
-    const t = clock.getElapsedTime() * 0.5;
+    const elapsedTime = clock.getElapsedTime();
+    const t = elapsedTime * 0.5;
 
     for (let i = 0; i < animated.length; i += 3) {
       const x = base[i];
@@ -49,6 +61,10 @@ const WavesPoints = () => {
     ) as THREE.BufferAttribute;
     attr.array = animated;
     attr.needsUpdate = true;
+
+    if (materialRef.current) {
+      materialRef.current.uniforms.uTime.value = elapsedTime;
+    }
   });
 
   return (
@@ -62,11 +78,28 @@ const WavesPoints = () => {
           count={(widthSegments + 1) * (heightSegments + 1)}
           itemSize={3}
         />
+        <bufferAttribute
+          attach='attributes-aPhase'
+          args={[phaseArray, 1]}
+          count={(widthSegments + 1) * (heightSegments + 1)}
+          itemSize={1}
+        />
       </bufferGeometry>
-      <pointsMaterial
-        color='#33ff99'
-        size={0.03}
-        sizeAttenuation
+      <shaderMaterial
+        ref={materialRef}
+        transparent
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
+        uniforms={{
+          uTime: {value: 0},
+          uColor: {value: new THREE.Color('#66ffcc')},
+          uBaseAlpha: {value: 0.35},
+          uTwinkleStrength: {value: 0.65},
+          uTwinkleSpeed: {value: 2.2},
+          uSize: {value: 3.0},
+        }}
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
       />
     </points>
   );
@@ -81,7 +114,7 @@ const Background = () => {
       />
       <fogExp2
         attach='fog'
-        args={['#020408', 0.06]}
+        args={['#020408', 1]}
       />
       <ambientLight intensity={0.6} />
       <WavesPoints />
