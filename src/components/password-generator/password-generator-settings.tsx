@@ -3,32 +3,50 @@ import {Checkbox} from '../ui/checkbox';
 
 export const Settings = () => {
   const {
+    isIncludeLowercase,
     isIncludeUppercase,
     isIncludeNumbers,
     isIncludeSymbols,
+    isIncludeCustomSymbols,
+    customSymbols,
+    setCustomSymbols,
+    toggleIncludeLowercase,
     toggleIncludeUppercase,
     toggleIncludeNumbers,
     toggleIncludeSymbols,
+    toggleIncludeCustomSymbols,
   } = usePasswordGeneratorContext();
 
   const passwordSettings = [
     {
-      label: 'Include Uppercase',
+      label: 'Lowercase',
+      value: isIncludeLowercase,
+      description: 'a-z',
+      onChange: toggleIncludeLowercase,
+    },
+    {
+      label: 'Uppercase',
       value: isIncludeUppercase,
       description: 'A-Z',
       onChange: toggleIncludeUppercase,
     },
     {
-      label: 'Include Numbers',
+      label: 'Numbers',
       value: isIncludeNumbers,
       description: '0-9',
       onChange: toggleIncludeNumbers,
     },
     {
-      label: 'Include Symbols',
+      label: 'Symbols',
       value: isIncludeSymbols,
       description: '!@#$%^&*()_+=',
       onChange: toggleIncludeSymbols,
+    },
+    {
+      label: 'Custom Symbols',
+      value: isIncludeCustomSymbols,
+      description: customSymbols || 'your symbols',
+      onChange: toggleIncludeCustomSymbols,
     },
   ];
 
@@ -52,6 +70,13 @@ export const Settings = () => {
           />
         </div>
       ))}
+      <input
+        className='h-9 rounded-md border border-white/20 bg-black/20 px-3 text-sm outline-none focus:border-green'
+        type='text'
+        placeholder='Enter custom symbols'
+        value={customSymbols}
+        onChange={(e) => setCustomSymbols(e.target.value)}
+      />
     </div>
   );
 };
