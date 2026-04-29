@@ -1,4 +1,4 @@
-import {usePasswordGenerator} from '@/hooks';
+import {usePasswordGenerator} from '@/hooks/usePasswordGenerator';
 
 export const LengthControl = () => {
   const {passwordLength, setPasswordLength} = usePasswordGenerator();

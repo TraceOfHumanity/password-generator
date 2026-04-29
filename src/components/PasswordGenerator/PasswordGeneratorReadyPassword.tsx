@@ -1,4 +1,4 @@
-import {usePasswordGenerator} from '@/hooks';
+import {usePasswordGenerator} from '@/hooks/usePasswordGenerator';
 import {useEffect, useState} from 'react';
 import {FaCheck} from 'react-icons/fa';
 import {IoCopyOutline} from 'react-icons/io5';
