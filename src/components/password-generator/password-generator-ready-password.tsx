@@ -1,10 +1,10 @@
-import {usePasswordGenerator} from '@/hooks/use-password-generator';
+import {usePasswordGeneratorContext} from '@/context/password-generator-context';
 import {useEffect, useState} from 'react';
 import {FaCheck} from 'react-icons/fa';
 import {IoCopyOutline} from 'react-icons/io5';
 
 export const ReadyPassword = () => {
-  const {password} = usePasswordGenerator();
+  const {password} = usePasswordGeneratorContext();
   const [isCopied, setIsCopied] = useState(false);
 
   useEffect(() => {

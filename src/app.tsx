@@ -1,9 +1,10 @@
 import {MatrixBackground} from './components/matrix-background';
+import Wrapper from './components/page-wrapper';
 import {PasswordGenerator} from './components/password-generator/password-generator';
 
 function App() {
   return (
-    <div className='h-screen w-screen overflow-hidden'>
+    <Wrapper>
       <MatrixBackground />
       <PasswordGenerator>
         <PasswordGenerator.Header />
@@ -12,7 +13,7 @@ function App() {
         <PasswordGenerator.GenerateButton />
         <PasswordGenerator.ReadyPassword />
       </PasswordGenerator>
-    </div>
+    </Wrapper>
   );
 }
 

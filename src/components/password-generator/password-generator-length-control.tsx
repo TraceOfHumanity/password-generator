@@ -1,7 +1,7 @@
-import {usePasswordGenerator} from '@/hooks/use-password-generator';
+import {usePasswordGeneratorContext} from '@/context/password-generator-context';
 
 export const LengthControl = () => {
-  const {passwordLength, setPasswordLength} = usePasswordGenerator();
+  const {passwordLength, setPasswordLength} = usePasswordGeneratorContext();
 
   return (
     <div className='flex w-full flex-col gap-2'>

@@ -1,4 +1,4 @@
-import {usePasswordGenerator} from '@/hooks/use-password-generator';
+import {usePasswordGeneratorContext} from '@/context/password-generator-context';
 import {Checkbox} from '../ui/checkbox';
 
 export const Settings = () => {
@@ -9,7 +9,7 @@ export const Settings = () => {
     toggleIncludeUppercase,
     toggleIncludeNumbers,
     toggleIncludeSymbols,
-  } = usePasswordGenerator();
+  } = usePasswordGeneratorContext();
 
   const passwordSettings = [
     {
