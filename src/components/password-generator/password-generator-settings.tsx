@@ -45,8 +45,8 @@ export const Settings = () => {
     {
       label: 'Custom Symbols',
       value: isIncludeCustomSymbols,
-      description: customSymbols || 'your symbols',
       onChange: toggleIncludeCustomSymbols,
+      isCustomSymbols: true,
     },
   ];
 
@@ -54,15 +54,25 @@ export const Settings = () => {
     <div className='flex flex-col gap-2'>
       {passwordSettings.map((setting, index) => (
         <div
-          className='flex items-center justify-between'
+          className='flex items-center justify-between gap-2'
           key={index}>
-          <p className='flex items-center gap-2 text-sm'>
+          <p className='grid grid-cols-[auto_1fr] items-center gap-2 text-sm  w-full'>
             {setting.label}
-            <span className='text-xs text-green'>
-              <span className='text-white/20'>(</span>
-              {setting.description}
-              <span className='text-white/20'>)</span>
-            </span>
+            {setting.isCustomSymbols ? (
+              <input
+                className='h-8 w-full rounded-md border border-white/20 bg-black/20 px-2 text-xs outline-none focus:border-green'
+                type='text'
+                placeholder='Enter symbols'
+                value={customSymbols}
+                onChange={(e) => setCustomSymbols(e.target.value)}
+              />
+            ) : (
+              <span className='text-xs text-green'>
+                <span className='text-white/20'>(</span>
+                {setting.description}
+                <span className='text-white/20'>)</span>
+              </span>
+            )}
           </p>
           <Checkbox
             checked={setting.value}
@@ -70,13 +80,6 @@ export const Settings = () => {
           />
         </div>
       ))}
-      <input
-        className='h-9 rounded-md border border-white/20 bg-black/20 px-3 text-sm outline-none focus:border-green'
-        type='text'
-        placeholder='Enter custom symbols'
-        value={customSymbols}
-        onChange={(e) => setCustomSymbols(e.target.value)}
-      />
     </div>
   );
 };
