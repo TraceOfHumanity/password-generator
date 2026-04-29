@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {PasswordGeneratorContext} from '@/context/PasswordGeneratorContext';
+import {PasswordGeneratorContext} from '@/context/password-generator-context';
 
 export const usePasswordGenerator = () => {
   const context = useContext(PasswordGeneratorContext);

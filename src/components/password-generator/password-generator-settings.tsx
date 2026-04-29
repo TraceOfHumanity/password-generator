@@ -1,5 +1,5 @@
-import {usePasswordGenerator} from '@/hooks/usePasswordGenerator';
-import {Checkbox} from '../ui/Checkbox';
+import {usePasswordGenerator} from '@/hooks/use-password-generator';
+import {Checkbox} from '../ui/checkbox';
 
 export const Settings = () => {
   const {

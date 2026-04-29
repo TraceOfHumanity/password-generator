@@ -1,4 +1,4 @@
-import {usePasswordGenerator} from '@/hooks/usePasswordGenerator';
+import {usePasswordGenerator} from '@/hooks/use-password-generator';
 
 export const GeneratePasswordButton = () => {
   const {generatePassword} = usePasswordGenerator();
