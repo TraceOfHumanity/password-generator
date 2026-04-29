@@ -64,7 +64,9 @@ export const Settings = () => {
                 type='text'
                 placeholder='Enter symbols'
                 value={customSymbols}
-                onChange={(e) => setCustomSymbols(e.target.value)}
+                onChange={(e) =>
+                  setCustomSymbols(e.target.value.replace(/\s+/g, ''))
+                }
               />
             ) : (
               <span className='text-xs text-green'>

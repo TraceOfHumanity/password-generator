@@ -57,11 +57,14 @@ export const usePasswordGenerator = () => {
       return;
     }
 
+    const uniqueCharacters = [...new Set(characterList.split(''))];
+    const targetLength = Math.min(passwordLength, uniqueCharacters.length);
     let generatedPassword = '';
 
-    for (let i = 0; i < passwordLength; i++) {
-      const randomIndex = Math.floor(Math.random() * characterList.length);
-      generatedPassword += characterList[randomIndex];
+    for (let i = 0; i < targetLength; i++) {
+      const randomIndex = Math.floor(Math.random() * uniqueCharacters.length);
+      generatedPassword += uniqueCharacters[randomIndex];
+      uniqueCharacters.splice(randomIndex, 1);
     }
 
     setPassword(generatedPassword);
