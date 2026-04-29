@@ -1,29 +1,39 @@
 # Password Generator
 
-A secure password generator that allows you to create strong passwords with various character sets.
+An interactive password generator built with React + TypeScript, featuring flexible character set configuration and a modern visual interface.
 
-## Password Strength Analysis
+## Features
 
-### Minimum Password Configuration
+- Password length configuration from `8` to `64`
+- Character set selection via checkboxes:
+  - Lowercase (`a-z`)
+  - Uppercase (`A-Z`)
+  - Numbers (`0-9`)
+  - Symbols (`!@#$%^&*()_+=`)
+  - Custom symbols (user input)
+- Automatic whitespace removal in the `Custom symbols` field
+- Generation is disabled when no character set is selected
+- One-click copy of the generated password to clipboard
+- Animated 3D background powered by `react-three-fiber` + GLSL shaders
 
-- Length: 8 characters
-- Character set: Lowercase letters (a-z)
-- Possible combinations: 208,827,064,576 (26^8)
+## Generation Logic
 
-### Maximum Password Configuration
+- Duplicate characters are removed while building `characterList`
+- Characters can repeat in the final password
+- The number of combinations is calculated as `N^L`, where:
+  - `N` is the number of unique characters in `characterList`
+  - `L` is the password length
 
-- Length: 32 characters
-- Character sets:
-  - Lowercase letters (a-z)
-  - Uppercase letters (A-Z)
-  - Numbers (0-9)
-  - Special characters (!@#$%^&\*()\_+=)
-- Total possible characters: 75
-- Possible combinations: 2.27 × 10^60 (75^32)
+## Estimated Number of Combinations
 
-## Security Comparison
+- Minimum practical configuration (numbers only, length `8`): `10^8 = 100,000,000`
+- Maximum base configuration without custom symbols (all built-in sets, length `64`): `75^64 ≈ 9.10 × 10^119`
+- With `Custom symbols`, the upper bound depends on the number of unique input characters
 
-- Minimum configuration: ~209 billion combinations
-- Maximum configuration: ~2.27 × 10^60 combinations
+## Scripts
 
-The maximum configuration provides an extremely high level of security, making it practically impossible to crack through brute force methods, even with supercomputers.
+- `npm run dev` - start development mode
+- `npm run build` - production build
+- `npm run preview` - preview production build
+- `npm run lint` - run ESLint checks
+- `npm run format` - format with Prettier
