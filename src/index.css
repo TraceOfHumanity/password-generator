@@ -20,7 +20,7 @@ body {
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
-  height: 30px;
+  height: 20px;
   background: #ffffff6a;
   border-radius: 100px;
   border: 2px solid #fff;
@@ -28,7 +28,7 @@ input[type='range']::-webkit-slider-thumb {
 
 input[type='range']::-moz-range-thumb {
   width: 16px;
-  height: 30px;
+  height: 20px;
   background: #ffffff6a;
   border-radius: 100px;
   border: 2px solid #fff;
