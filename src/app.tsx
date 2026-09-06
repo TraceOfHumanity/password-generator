@@ -10,7 +10,6 @@ function App() {
         <PasswordGenerator.Header />
         <PasswordGenerator.LengthControl />
         <PasswordGenerator.Settings />
-        <PasswordGenerator.GenerateButton />
         <PasswordGenerator.ReadyPassword />
       </PasswordGenerator>
     </Wrapper>
