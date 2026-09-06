@@ -1,6 +1,7 @@
 import {usePasswordGeneratorContext} from '@/context/password-generator-context';
-import {Checkbox} from '../../ui/checkbox';
 import Input from '../../ui/input';
+import {SettingRow} from './setting-row';
+import {SettingDescription} from './setting-description';
 
 export const Settings = () => {
   const {
@@ -53,33 +54,24 @@ export const Settings = () => {
 
   return (
     <div className='flex flex-col gap-2'>
-      {passwordSettings.map((setting, index) => (
-        <div
-          className='flex items-center justify-between gap-2'
-          key={index}>
-          <p className='grid grid-cols-[auto_1fr] items-center gap-2 text-sm  w-full'>
-            {setting.label}
-            {setting.isCustomSymbols ? (
-              <Input
-                placeholder='Enter symbols'
-                value={customSymbols}
-                onChange={(e) =>
-                  setCustomSymbols(e.target.value.replace(/\s+/g, ''))
-                }
-              />
-            ) : (
-              <span className='text-xs text-green'>
-                <span className='text-white/20'>(</span>
-                {setting.description}
-                <span className='text-white/20'>)</span>
-              </span>
-            )}
-          </p>
-          <Checkbox
-            checked={setting.value}
-            onChange={setting.onChange}
-          />
-        </div>
+      {passwordSettings.map((setting) => (
+        <SettingRow
+          key={setting.label}
+          label={setting.label}
+          checked={setting.value}
+          onChange={setting.onChange}>
+          {setting.isCustomSymbols ? (
+            <Input
+              placeholder='Enter symbols'
+              value={customSymbols}
+              onChange={(e) =>
+                setCustomSymbols(e.target.value.replace(/\s+/g, ''))
+              }
+            />
+          ) : (
+            <SettingDescription>{setting.description}</SettingDescription>
+          )}
+        </SettingRow>
       ))}
     </div>
   );
