@@ -70,7 +70,7 @@ const WavesPoints = () => {
   return (
     <points
       ref={pointsRef}
-      rotation-x={-Math.PI / 2.2}>
+      rotation-x={-Math.PI / 2.4}>
       <bufferGeometry>
         <bufferAttribute
           attach='attributes-position'
@@ -93,12 +93,12 @@ const WavesPoints = () => {
         uniforms={{
           uTime: {value: 0},
           uColor: {value: new THREE.Color('#66ffcc')},
-          uBaseAlpha: {value: 0.35},
+          uBaseAlpha: {value: 0.5},
           uTwinkleStrength: {value: 0.65},
           uTwinkleSpeed: {value: 2.2},
           uSize: {value: 3.0},
           uFogColor: {value: new THREE.Color('#020408')},
-          uFogDensity: {value: 0.05},
+          uFogDensity: {value: 0.02},
         }}
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
@@ -109,12 +109,14 @@ const WavesPoints = () => {
 
 const Background = () => {
   return (
-    <Canvas camera={{position: [0, 6, 10], fov: 50, near: 0.1, far: 120}}>
+    <Canvas
+      camera={{position: [0, 6, 10], fov: 50, near: 0.1, far: 120}}
+      className='fixed inset-0'>
       <color
         attach='background'
         args={['#020408']}
       />
- 
+
       <ambientLight intensity={0.6} />
       <WavesPoints />
     </Canvas>
