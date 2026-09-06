@@ -1,5 +1,6 @@
 import {usePasswordGeneratorContext} from '@/context/password-generator-context';
 import {Checkbox} from '../../ui/checkbox';
+import Input from '../../ui/input';
 
 export const Settings = () => {
   const {
@@ -59,9 +60,7 @@ export const Settings = () => {
           <p className='grid grid-cols-[auto_1fr] items-center gap-2 text-sm  w-full'>
             {setting.label}
             {setting.isCustomSymbols ? (
-              <input
-                className='h-8 w-full rounded-md border border-white/20 bg-black/20 px-2 text-xs outline-none focus:border-green'
-                type='text'
+              <Input
                 placeholder='Enter symbols'
                 value={customSymbols}
                 onChange={(e) =>
