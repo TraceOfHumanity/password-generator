@@ -1,125 +1,91 @@
-import {Canvas, useFrame} from '@react-three/fiber';
-import {useMemo, useRef} from 'react';
-import * as THREE from 'three';
-import fragmentShader from './shaders/waves-points.frag.glsl';
-import vertexShader from './shaders/waves-points.vert.glsl';
+import {useEffect, useRef} from 'react';
 
-const WavesPoints = () => {
-  const pointsRef = useRef<THREE.Points>(null);
-  const materialRef = useRef<THREE.ShaderMaterial>(null);
-
-  const {base, widthSegments, heightSegments} = useMemo(() => {
-    const width = 50;
-    const height = 30;
-    const widthSegments = 180;
-    const heightSegments = 180;
-
-    const geometry = new THREE.PlaneGeometry(
-      width,
-      height,
-      widthSegments,
-      heightSegments,
-    );
-    const base = new Float32Array(geometry.attributes.position.array);
-    geometry.dispose();
-
-    return {base, widthSegments, heightSegments};
-  }, []);
-
-  const animated = useMemo(() => new Float32Array(base), [base]);
-  const phaseArray = useMemo(() => {
-    const count = (widthSegments + 1) * (heightSegments + 1);
-    const phases = new Float32Array(count);
-    for (let i = 0; i < count; i++) {
-      phases[i] = Math.random() * Math.PI * 2;
-    }
-    return phases;
-  }, [heightSegments, widthSegments]);
-
-  useFrame(({clock}) => {
-    const elapsedTime = clock.getElapsedTime();
-    const t = elapsedTime * 0.5;
-
-    for (let i = 0; i < animated.length; i += 3) {
-      const x = base[i];
-      const y = base[i + 1];
-
-      const wave1 = Math.sin(x * 0.55 + t) * 0.35;
-      const wave2 = Math.cos(y * 0.7 + t * 1.2) * 0.25;
-      const wave3 = Math.sin((x + y) * 0.35 + t * 0.8) * 0.2;
-
-      animated[i] = x;
-      animated[i + 1] = y;
-      animated[i + 2] = wave1 + wave2 + wave3;
-    }
-
-    const points = pointsRef.current;
-    if (!points) return;
-
-    const attr = points.geometry.getAttribute(
-      'position',
-    ) as THREE.BufferAttribute;
-    attr.array = animated;
-    attr.needsUpdate = true;
-
-    if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = elapsedTime;
-    }
-  });
-
-  return (
-    <points
-      ref={pointsRef}
-      rotation-x={-Math.PI / 2.4}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach='attributes-position'
-          args={[animated, 3]}
-          count={(widthSegments + 1) * (heightSegments + 1)}
-          itemSize={3}
-        />
-        <bufferAttribute
-          attach='attributes-aPhase'
-          args={[phaseArray, 1]}
-          count={(widthSegments + 1) * (heightSegments + 1)}
-          itemSize={1}
-        />
-      </bufferGeometry>
-      <shaderMaterial
-        ref={materialRef}
-        transparent
-        depthWrite={false}
-        blending={THREE.AdditiveBlending}
-        uniforms={{
-          uTime: {value: 0},
-          uColor: {value: new THREE.Color('#66ffcc')},
-          uBaseAlpha: {value: 0.5},
-          uTwinkleStrength: {value: 0.65},
-          uTwinkleSpeed: {value: 2.2},
-          uSize: {value: 3.0},
-          uFogColor: {value: new THREE.Color('#020408')},
-          uFogDensity: {value: 0.02},
-        }}
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-      />
-    </points>
-  );
-};
+const CHARACTERS = ['0', '1'];
+const FONT_SIZE = 18;
+const FRAME_INTERVAL = 1000 / 20;
+const BACKGROUND_COLOR = '#020408';
+const GLYPH_COLOR = '#cae0ba';
 
 const Background = () => {
-  return (
-    <Canvas
-      camera={{position: [0, 6, 10], fov: 50, near: 0.1, far: 120}}
-      className='fixed inset-0'>
-      <color
-        attach='background'
-        args={['#020408']}
-      />
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-      <ambientLight intensity={0.6} />
-      <WavesPoints />
-    </Canvas>
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let columnCount = 0;
+    let drops: number[] = [];
+    let speeds: number[] = [];
+
+    const setup = () => {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      columnCount = Math.ceil(window.innerWidth / FONT_SIZE);
+      drops = Array.from({length: columnCount}, () =>
+        Math.floor((Math.random() * window.innerHeight) / FONT_SIZE) * -1,
+      );
+      speeds = Array.from({length: columnCount}, () => 0.5 + Math.random());
+
+      ctx.fillStyle = BACKGROUND_COLOR;
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    };
+
+    setup();
+    window.addEventListener('resize', setup);
+
+    let animationFrameId: number;
+    let lastFrameTime = 0;
+
+    const draw = (time: number) => {
+      animationFrameId = requestAnimationFrame(draw);
+
+      if (time - lastFrameTime < FRAME_INTERVAL) return;
+      lastFrameTime = time;
+
+      ctx.fillStyle = 'rgba(2, 4, 8, 0.1)';
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+      ctx.font = `${FONT_SIZE}px monospace`;
+      ctx.textAlign = 'center';
+
+      for (let i = 0; i < columnCount; i++) {
+        const character =
+          CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
+        const x = i * FONT_SIZE + FONT_SIZE / 2;
+        const y = drops[i] * FONT_SIZE;
+
+        ctx.fillStyle = GLYPH_COLOR;
+        ctx.fillText(character, x, y);
+
+        if (y > window.innerHeight && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i] += speeds[i];
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(draw);
+
+    return () => {
+      window.removeEventListener('resize', setup);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className='fixed inset-0'
+    />
   );
 };
 
